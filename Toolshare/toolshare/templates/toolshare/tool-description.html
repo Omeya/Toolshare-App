@@ -1,0 +1,70 @@
+{% extends "toolshare/base_home.html" %}
+
+{% block title%}
+    | My account - Owned tools
+{% endblock %}
+
+{% block main_heading %}
+<h2>Tool Description</h2>
+<p>Details of Tool</p>
+{% endblock %}<!--
+{% block breadcrumb %}
+    <li><a href="/toolshare/">Home</a></li><li><a href="/toolshare/my_account">My account</a></li><li class="active"><a href="#"></a>Owned tools</li>
+{% endblock %}-->
+
+{% block content %}
+<div id="tool-detail" class="tab-pane active">
+<!--
+    Message to display if cancel, or return
+    =======================================
+    -->
+
+    <div class="inner-padding">
+        <div class="col-sm-4">
+
+            <div class="client-block">
+                <div>
+                <ul class="client-block-list">
+                    <li>
+                        <h3> {{tool.name}}</h3><br/>
+
+
+                    </li>
+                </ul>
+                    </div>
+                        <div class="lightboxx">
+                        <a href="{{ tool.picture.url }}" class="relative" title="{{ tool.name }}" style="width:145px">
+                            <img src="{{ tool.picture.url }}" class="img-thumbnail" />
+                            <span class="lightbox-indicator" style="display: inline; opacity: 0;"><span><i class="fa fa-search"></i></span></span></a>
+                        </div>
+            </div><!-- End .client-block -->
+        </div>
+        <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-4"><strong>Status:</strong></div><div class="col-sm-8">{{tool.get_status_description}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Category:</strong></div><div class="col-sm-8">{{tool.category}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Pickup location:</strong></div><div class="col-sm-8">{{tool.pickup_location}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4"><strong>Address:</strong></div><div class="col-sm-8">
+             {{tool.address_line}} -
+                                    {{tool.city}},
+                                    {{tool.state}}<br/><br/>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Description:</strong></div><div class="col-sm-8">{{tool.description}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Special instructions:</strong></div><div class="col-sm-8">{{tool.special_instructions}}</div>
+        </div>
+        </div>
+    </div>
+</div>
+ {% endblock%}
